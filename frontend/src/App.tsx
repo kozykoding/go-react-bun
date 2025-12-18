@@ -8,8 +8,7 @@ function App() {
   const [message, setMessage] = useState<string>("");
 
   // Prefer a full API URL via Vite env, fall back to localhost:4200 (Docker/default dev API port)
-  const apiUrl =
-    import.meta.env.VITE_API_URL || `http://localhost:4200`;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const fetchData = () => {
     fetch(`${apiUrl}/`)
@@ -26,7 +25,7 @@ function App() {
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto space-y-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-2">Vite + React + Bun + Go</h1>
+            <h1 className="text-4xl font-bold mb-2">React + Bun + Go</h1>
             <p className="text-primary">
               Get started by editing{" "}
               <code className="text-sm p-1 rounded">src/App.tsx</code>
@@ -69,4 +68,3 @@ function App() {
 }
 
 export default App;
-
