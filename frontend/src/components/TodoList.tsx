@@ -6,14 +6,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemGroup,
-  ItemMedia,
-  ItemTitle,
-} from "@/components/ui/item";
+import { Item, ItemGroup } from "@/components/ui/item";
 
 const API_BASE = import.meta.env.VITE_API_URL;
 
