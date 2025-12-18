@@ -29,7 +29,7 @@ export function HealthCheck({ onChecked }: HealthCheckProps) {
 
   return (
     <div>
-      <Button onClick={checkHealth} disabled={loading}>
+      <Button onClick={checkHealth} variant="secondary" disabled={loading}>
         {loading ? "Checking Go Server..." : "Check Go API Status"}
       </Button>
       <div className="p-2">

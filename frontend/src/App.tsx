@@ -32,61 +32,88 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      {/*header*/}
       <header className="z-top sticky p-4">
         <ModeToggle />
       </header>
-      <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div className="container max-w-lg mx-auto">
+
+      {/*main body*/}
+      <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        {/*first section*/}
+        <section className="container max-w-lg mx-auto mb-6">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-2">React + Bun + Go</h1>
+            <h1 className="text-4xl text-primary font-bold mb-2">
+              React + Bun + Go
+            </h1>
+            <p className="text-muted-foreground text-sm">
+              This is just a small full stack project to showcase separate
+              frontend and backend
+            </p>
           </div>
 
-          <div className="p-6 rounded-lg shadow-lg">
-            <div className="text-center space-y-4">
-              <Button
-                onClick={() => setCount((count) => count + 1)}
-                variant="secondary"
-              >
-                Count is {count}
-              </Button>
+          {hasActivity && (
+            <Button
+              onClick={reset}
+              className="mt-4 w-full"
+              variant="destructive"
+            >
+              Clear Server Messages
+            </Button>
+          )}
 
-              <Button
-                onClick={fetchData}
-                className="w-full p-4"
-                variant="outline"
-              >
-                Fetch From Go Server
-              </Button>
-
-              {message && (
-                <div className="mt-4 p-4 rounded-md">
-                  <p className="text-muted-foreground">Go Server Response:</p>
-                  <p className="text-primary font-medium">{message}</p>
-                </div>
-              )}
-            </div>
-            <div className="p-4 items-center text-center">
+          <div className="grid grid-cols-2 p-6 rounded-md shadow-lg mb-4">
+            <div className="items-center text-center">
               <HealthCheck
                 key={resetId}
                 onChecked={() => setHasHealthActivity(true)}
               />
             </div>
+            <div className="flex flex-col items-center space-y-2">
+              {/*<Button
+                onClick={() => setCount((count) => count + 1)}
+                variant="secondary"
+              >
+                Count is {count}
+              </Button>*/}
 
-            {hasActivity && (
-              <Button onClick={reset} className="w-full" variant="destructive">
-                Reset All
+              <Button onClick={fetchData} className="max-w-md">
+                Fetch From Go Server
               </Button>
-            )}
+
+              <div className="text-center">
+                {" "}
+                {message && (
+                  <div className="mt-4 p-4 rounded-md">
+                    <p className="text-muted-foreground">Go Server Response:</p>
+                    <p className="text-primary font-medium">{message}</p>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-          <div className="mt-6">
+        </section>
+
+        {/*second section*/}
+        <section className="container max-w-lg mx-auto mt-6 rounded-md shadow-lg mb-6">
+          <div className="text-center mb-4">
+            <h1 className="text-4xl text-primary font-bold mb-2">
+              Go + PostgreSQL
+            </h1>
+            <p className="text-muted-foreground text-sm">
+              After you've completed an item, click on it to mark is as
+              completed
+            </p>
+          </div>
+          <div>
             <TodoList />
           </div>
+        </section>
 
-          <div className="text-center text-muted-foreground text-sm mt-4">
-            Built with Vite React, Go, and ShadCN / Tailwind CSS
-          </div>
-        </div>
-      </div>
+        {/*footer section*/}
+        <footer className="text-center text-muted-foreground text-sm mt-6">
+          Built with Vite React, Go, and ShadCN / Tailwind CSS
+        </footer>
+      </main>
     </ThemeProvider>
   );
 }
