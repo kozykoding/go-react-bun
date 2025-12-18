@@ -1,0 +1,10 @@
+# frontend/nixpacks.toml  (new file)
+
+[phases.install]
+cmds = ["bun install --frozen-lockfile"]
+
+[phases.build]
+cmds = ["bun run build"]
+
+[start]
+cmd = "bun run preview" # ignored for static site, but okay to leave
