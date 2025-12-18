@@ -22,6 +22,19 @@ type Service interface {
 	// Close terminates the database connection.
 	// It returns an error if the connection cannot be closed.
 	Close() error
+
+	// Todos
+	ListTodos(ctx context.Context) ([]Todo, error)
+	CreateTodo(ctx context.Context, text string) (Todo, error)
+	ToggleTodo(ctx context.Context, id int64) (Todo, error)
+	DeleteTodo(ctx context.Context, id int64) error
+}
+
+type Todo struct {
+	ID        int64     `json:"id"`
+	Text      string    `json:"text"`
+	Done      bool      `json:"done"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type service struct {
@@ -44,6 +57,7 @@ func New() Service {
 		return dbInstance
 	}
 	connStr := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable&search_path=%s", username, password, host, port, database, schema)
+
 	db, err := sql.Open("pgx", connStr)
 	if err != nil {
 		log.Fatal(err)
@@ -103,6 +117,60 @@ func (s *service) Health() map[string]string {
 	}
 
 	return stats
+}
+
+// List all todos
+func (s *service) ListTodos(ctx context.Context) ([]Todo, error) {
+	const query = `SELECT id, text, done, created_at FROM todos ORDER BY created_at DESC`
+	rows, err := s.db.QueryContext(ctx, query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var todos []Todo
+	for rows.Next() {
+		var t Todo
+		if err := rows.Scan(&t.ID, &t.Text, &t.Done, &t.CreatedAt); err != nil {
+			return nil, err
+		}
+		todos = append(todos, t)
+	}
+	return todos, rows.Err()
+}
+
+// Create a new todo
+func (s *service) CreateTodo(ctx context.Context, text string) (Todo, error) {
+	const query = `
+        INSERT INTO todos (text, done)
+        VALUES ($1, FALSE)
+        RETURNING id, text, done, created_at
+    `
+	var t Todo
+	err := s.db.QueryRowContext(ctx, query, text).
+		Scan(&t.ID, &t.Text, &t.Done, &t.CreatedAt)
+	return t, err
+}
+
+// Toggle done/undone
+func (s *service) ToggleTodo(ctx context.Context, id int64) (Todo, error) {
+	const query = `
+        UPDATE todos
+        SET done = NOT done
+        WHERE id = $1
+        RETURNING id, text, done, created_at
+    `
+	var t Todo
+	err := s.db.QueryRowContext(ctx, query, id).
+		Scan(&t.ID, &t.Text, &t.Done, &t.CreatedAt)
+	return t, err
+}
+
+// Delete by id
+func (s *service) DeleteTodo(ctx context.Context, id int64) error {
+	const query = `DELETE FROM todos WHERE id = $1`
+	_, err := s.db.ExecContext(ctx, query, id)
+	return err
 }
 
 // Close closes the database connection.

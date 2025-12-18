@@ -11,16 +11,15 @@ build:
 
 # Run the application
 run:
-	@go run cmd/api/main.go &
-	@cd frontend && bun install --prefer-offline --no-fund
-	@cd frontend && bun run dev
+	@go run cmd/api/main.go
+
 # Create DB container
 docker-run:
-	@if docker compose up --build 2>/dev/null; then \
+	@if docker compose up psql_bp 2>/dev/null; then \
 		: ; \
 	else \
 		echo "Falling back to Docker Compose V1"; \
-		docker-compose up --build; \
+		docker-compose up psql_bp; \
 	fi
 
 # Shutdown DB container
