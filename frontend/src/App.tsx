@@ -26,10 +26,6 @@ function App() {
         <div className="max-w-md mx-auto space-y-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-2">React + Bun + Go</h1>
-            <p className="text-primary">
-              Get started by editing{" "}
-              <code className="text-sm p-1 rounded">src/App.tsx</code>
-            </p>
           </div>
 
           <div className="p-6 rounded-lg shadow-lg">
