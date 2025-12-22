@@ -3,6 +3,7 @@ package database
 import (
 	"context"
 	"database/sql"
+	"embed"
 	"fmt"
 	"log"
 	"os"
@@ -11,19 +12,18 @@ import (
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 	_ "github.com/joho/godotenv/autoload"
+	"github.com/pressly/goose/v3"
 )
+
+// Embed the migrations folder
+//
+//go:embed migrations/*.sql
+var embedMigrations embed.FS
 
 // Service represents a service that interacts with a database.
 type Service interface {
-	// Health returns a map of health status information.
-	// The keys and values in the map are service-specific.
 	Health() map[string]string
-
-	// Close terminates the database connection.
-	// It returns an error if the connection cannot be closed.
 	Close() error
-
-	// Todos
 	ListTodos(ctx context.Context) ([]Todo, error)
 	CreateTodo(ctx context.Context, text string) (Todo, error)
 	ToggleTodo(ctx context.Context, id int64) (Todo, error)
@@ -62,14 +62,27 @@ func New() Service {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// RUN MIGRATIONS START ---
+	// This tells Goose to use the embedded file system instead of reading from disk
+	goose.SetBaseFS(embedMigrations)
+
+	if err := goose.SetDialect("postgres"); err != nil {
+		log.Fatalf("failed to set goose dialect: %v", err)
+	}
+
+	// Run migrations found in the "migrations" directory of the embedFS
+	if err := goose.Up(db, "migrations"); err != nil {
+		log.Fatalf("failed to run migrations: %v", err)
+	}
+	// --- RUN MIGRATIONS END ---
+
 	dbInstance = &service{
 		db: db,
 	}
 	return dbInstance
 }
 
-// Health checks the health of the database connection by pinging the database.
-// It returns a map with keys indicating various health statistics.
 func (s *service) Health() map[string]string {
 	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 	defer cancel()
@@ -100,7 +113,7 @@ func (s *service) Health() map[string]string {
 	stats["max_lifetime_closed"] = strconv.FormatInt(dbStats.MaxLifetimeClosed, 10)
 
 	// Evaluate stats to provide a health message
-	if dbStats.OpenConnections > 40 { // Assuming 50 is the max for this example
+	if dbStats.OpenConnections > 40 { // Asserting 50 is the max for now
 		stats["message"] = "The database is experiencing heavy load."
 	}
 
@@ -174,9 +187,6 @@ func (s *service) DeleteTodo(ctx context.Context, id int64) error {
 }
 
 // Close closes the database connection.
-// It logs a message indicating the disconnection from the specific database.
-// If the connection is successfully closed, it returns nil.
-// If an error occurs while closing the connection, it returns the error.
 func (s *service) Close() error {
 	log.Printf("Disconnected from database: %s", database)
 	return s.db.Close()
