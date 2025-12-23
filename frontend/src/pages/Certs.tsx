@@ -18,8 +18,7 @@ export default function CertsPage() {
           My Certifications
         </h1>
         <p className="text-muted-foreground mt-2">
-          As of December 2025. There&apos;s more to come—I need to dig up my
-          other certs!
+          As of December 2025. There&apos;s more to come!
         </p>
       </div>
 

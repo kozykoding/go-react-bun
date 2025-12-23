@@ -54,6 +54,9 @@ export function NavMenu() {
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
           <Link to="/resume">Resume</Link>
         </NavigationMenuLink>
+        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <Link to="/certs">Certifications</Link>
+        </NavigationMenuLink>
       </NavigationMenuList>
     </NavigationMenu>
   );

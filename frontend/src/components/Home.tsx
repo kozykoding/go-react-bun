@@ -3,11 +3,12 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+  Item,
+  ItemHeader,
+  ItemContent,
+  ItemDescription,
+  ItemTitle,
+} from "@/components/ui/item";
 import {
   Tooltip,
   TooltipContent,
@@ -58,45 +59,53 @@ export default function Home() {
 
       {/* Navigation Cards */}
       <section className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Link to="/health">
-          <Card className="h-full hover:bg-muted/50 transition-colors cursor-pointer">
-            <CardHeader>
-              <CardTitle>Health Check</CardTitle>
-              <CardDescription>
-                Test the connection between Go, and React.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </Link>
+        <Item variant="outline" asChild>
+          <Link to="/health">
+            <ItemContent>
+              <ItemHeader>
+                <ItemTitle>Go API Health Check</ItemTitle>
+                <ItemDescription>
+                  Test the connection between Go and React.
+                </ItemDescription>
+              </ItemHeader>
+            </ItemContent>
+          </Link>
+        </Item>
 
-        <Link to="/todos">
-          <Card className="h-full hover:bg-muted/50 transition-colors cursor-pointer">
-            <CardHeader>
-              <CardTitle>Todo App</CardTitle>
-              <CardDescription>
-                CRUD app using Postgres for persistence & Go.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </Link>
+        <Item variant="outline" asChild>
+          <Link to="/todos">
+            <ItemContent>
+              <ItemHeader>
+                <ItemTitle>Todo App</ItemTitle>
+                <ItemDescription>
+                  CRUD app using Postgres for persistence & Go.
+                </ItemDescription>
+              </ItemHeader>
+            </ItemContent>
+          </Link>
+        </Item>
 
-        <Link to="/resume">
-          <Card className="h-full hover:bg-muted/50 transition-colors cursor-pointer">
-            <CardHeader>
-              <CardTitle>My Resume</CardTitle>
-              <CardDescription>Work creds.</CardDescription>
-            </CardHeader>
-          </Card>
-        </Link>
+        <Item variant="outline" asChild>
+          <Link to="/resume">
+            <ItemContent>
+              <ItemHeader>
+                <ItemTitle>My Resume</ItemTitle>
+                <ItemDescription>Work creds.</ItemDescription>
+              </ItemHeader>
+            </ItemContent>
+          </Link>
+        </Item>
 
-        <Link to="/certs">
-          <Card className="h-full hover:bg-muted/50 transition-colors cursor-pointer">
-            <CardHeader>
-              <CardTitle>Certifications</CardTitle>
-              <CardDescription>Cert showcase.</CardDescription>
-            </CardHeader>
-          </Card>
-        </Link>
+        <Item variant="outline" asChild>
+          <Link to="/certs">
+            <ItemContent>
+              <ItemHeader>
+                <ItemTitle>Certifications</ItemTitle>
+                <ItemDescription>Cert showcase.</ItemDescription>
+              </ItemHeader>
+            </ItemContent>
+          </Link>
+        </Item>
       </section>
 
       {/* Featured: The Game */}
