@@ -60,7 +60,7 @@ export function NavMenu() {
 }
 
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
+  HTMLAnchorElement,
   React.ComponentPropsWithoutRef<"a"> & { title: string; to: string }
 >(({ className, title, children, to, ...props }, ref) => {
   return (
@@ -68,7 +68,7 @@ const ListItem = React.forwardRef<
       <NavigationMenuLink asChild>
         <Link
           to={to}
-          // These are the Shadcn default styles for list items
+          ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-primary-background focus:bg-accent focus:text-primary-background",
             className,
@@ -82,4 +82,3 @@ const ListItem = React.forwardRef<
     </li>
   );
 });
-ListItem.displayName = "ListItem";
