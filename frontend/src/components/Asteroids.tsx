@@ -14,7 +14,9 @@ export default function AsteroidsGame() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // This forces the iframe to reload, effectively restarting the whole python VM
+  const gameUrl = import.meta.env.VITE_ASTEROIDS_URL;
+
+  // Forces the iframe to reload, restarting python VM
   const handleHardReset = () => {
     if (iframeRef.current) {
       iframeRef.current.src = iframeRef.current.src;
@@ -71,7 +73,7 @@ export default function AsteroidsGame() {
 
         <iframe
           ref={iframeRef}
-          src="/asteroids/index.html"
+          src={gameUrl}
           title="Sammy's Asteroids"
           className="w-full h-full border border-muted"
           // Allow full screen and audio
