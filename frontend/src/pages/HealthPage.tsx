@@ -24,9 +24,9 @@ export default function HealthPage() {
   };
 
   return (
-    <div className="container max-w-lg mx-auto">
+    <div className="container max-w-lg mt-6 mx-auto">
       <div className="text-center mb-6">
-        <h1 className="text-3xl text-primary font-bold mb-2">System Health</h1>
+        <h1 className="text-3xl text-primary font-bold mb-2">Go API Health</h1>
         <p className="text-primary/80">Check the Go backend status</p>
       </div>
 

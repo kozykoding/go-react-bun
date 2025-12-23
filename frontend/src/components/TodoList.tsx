@@ -6,6 +6,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Item, ItemGroup } from "@/components/ui/item";
 
 const API_BASE = import.meta.env.VITE_API_URL;
@@ -108,7 +109,7 @@ export function TodoList() {
           <InputGroupInput
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Add a todo...such as 'Hire Sammy'"
+            placeholder="Add a todo..."
           />
           <InputGroupAddon align="inline-end">
             <InputGroupButton variant="ghost" type="submit" disabled={loading}>
@@ -121,7 +122,12 @@ export function TodoList() {
       <ul className="space-y-2">
         <ItemGroup className="gap-4">
           {safeTodos.map((todo) => (
-            <Item key={todo.id} className="p-2 shadow-lg">
+            <Item key={todo.id} className="p-2 flex items-center gap-2">
+              <Checkbox
+                checked={todo.done}
+                onCheckedChange={() => toggleTodo(todo.id)}
+              />
+
               <button
                 type="button"
                 onClick={() => toggleTodo(todo.id)}
@@ -131,16 +137,21 @@ export function TodoList() {
               >
                 {todo.text}
               </button>
+
               <Button
+                type="button"
                 variant="ghost"
                 className="hover:bg-destructive"
                 size="sm"
-                onClick={() => deleteTodo(todo.id)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  void deleteTodo(todo.id);
+                }}
               >
                 ✕
               </Button>
             </Item>
-          ))}
+          ))}{" "}
           {safeTodos.length === 0 && (
             <li className="text-sm text-muted-foreground">No todos yet.</li>
           )}

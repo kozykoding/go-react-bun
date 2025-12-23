@@ -115,7 +115,7 @@ export default function Home() {
             Featured Project
           </h2>
           <p className="text-primary/80">
-            Python Asteroids. Have A... Blast...
+            Sammy&apos;s Python Asteroids. Have A... Blast!
           </p>
         </div>
 
@@ -127,10 +127,9 @@ export default function Home() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/50 via-black to-black opacity-50" />
 
             <div className="z-10 text-center space-y-4">
-              <h3 className="text-2xl font-bold text-white">Ready to Play?</h3>
-              <p className="text-zinc-400">
-                Click below to load the Pygame Engine
-              </p>
+              <h3 className="text-2xl font-bold text-primary">
+                Ready to Play?
+              </h3>
               <Button
                 size="lg"
                 onClick={() => setGameLoaded(true)}
