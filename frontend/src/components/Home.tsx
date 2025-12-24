@@ -16,6 +16,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import linkedin from "@/assets/linkedin.svg";
+import gmail from "@/assets/gmail.svg";
 import github from "@/assets/github.svg";
 import githubDark from "@/assets/githubDark.svg";
 import { useTheme } from "@/components/theme-provider";
@@ -27,6 +28,12 @@ export default function Home() {
 
   const isDark = theme === "dark";
   const githubIcon = isDark ? github : githubDark;
+  const recipient = "sammy@kozykoding.com";
+  const subject = "You Are Hired!";
+  const body =
+    "Hey Sammy, I want to offer you a position as an dev at my company!";
+
+  const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (
     <div className="space-y-12">
@@ -53,6 +60,11 @@ export default function Home() {
             src={linkedin}
             alt="LinkedIn"
             href="https://www.linkedin.com/in/samuel-lee-690891b4/"
+          />
+          <SocialLinks
+            src={gmail}
+            alt="sammy@kozykoding.com"
+            href={mailtoUrl}
           />
         </div>
       </TooltipProvider>
