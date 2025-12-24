@@ -33,7 +33,7 @@ export default function Home() {
       {/* Intro Section */}
       <section className="container max-w-2xl mx-auto text-center">
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
-          React + Bun + Go + Postgres
+          React + Bun + Go + Postgres + Tanstack Router
         </h1>
         <p className="text-xl text-muted-foreground">
           A full-stack showcase application demonstrating separate frontend and
