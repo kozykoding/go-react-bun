@@ -159,6 +159,9 @@ export default function ResumePage() {
           <SectionHeading>Certifications</SectionHeading>
           <UL>
             <LI>Go Certification</LI>
+            <UL>
+              <LI>Go HTTP Clients Certification</LI>
+            </UL>
             <LI>Python Certification</LI>
             <LI>Object Oriented Programming Certification</LI>
             <LI>SQL Certification</LI>
