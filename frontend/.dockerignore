@@ -1,0 +1,40 @@
+# Dependencies (installed fresh during build)
+node_modules/
+
+# Build output (generated during build)
+dist/
+build/
+
+# Dev/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temp
+*.log
+*.tmp
+tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Test/coverage
+coverage/
+*.test
+
+# Environment (secrets)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Lock files are fine to include (helps with reproducible builds)
+# bun.lock - KEEP this
+# package-lock.json - KEEP this
+

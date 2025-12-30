@@ -1,0 +1,52 @@
+# Dependencies (will be installed fresh during build)
+node_modules/
+frontend/node_modules/
+
+# Git
+.git/
+.gitignore
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker / Compose files (not needed inside the image)
+docker-compose.yml
+docker-compose.yaml
+
+# Makefile
+Makefile
+
+# Environment files (secrets - don't bake into image)
+.env
+.env.*
+!.env.example
+
+# Temp / Cache
+tmp/
+*.tmp
+*.log
+*.out
+
+# Test artifacts
+coverage/
+
+# README and docs
+*.md
+
+# Frontend build output (will be generated)
+frontend/dist/
+frontend/build/
+
+# Go test binary
+*.test
+
+# Go built binary (will be compiled during build)
+main
