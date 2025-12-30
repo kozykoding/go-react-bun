@@ -1,4 +1,5 @@
 import pythoncert from "@/assets/pythoncert.png";
+import linuxcert from "@/assets/linux_certificate.png";
 import gohttp from "@/assets/gohttpclients_cert.png";
 import gocert from "@/assets/go_certificate.png";
 import sqlcert from "@/assets/sql_certificate.png";
@@ -28,6 +29,7 @@ export default function CertsPage() {
           <CertItem src={gocert} alt="Go Certification" />
           <CertItem src={gohttp} alt="Go HTTP Clients Certification" />
           <CertItem src={pythoncert} alt="Python Certification" />
+          <CertItem src={linuxcert} alt="Linux Certification" />
           <CertItem
             src={oopcert}
             alt="Object Oriented Programming Certification"

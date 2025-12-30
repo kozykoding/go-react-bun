@@ -164,6 +164,7 @@ export default function ResumePage() {
             </UL>
             <LI>Python Certification</LI>
             <LI>Object Oriented Programming Certification</LI>
+            <LI>Linux Certification</LI>
             <LI>SQL Certification</LI>
             <LI>AWS Cloud Practictioner Certification (in progress)</LI>
           </UL>
