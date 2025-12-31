@@ -163,7 +163,10 @@ export default function ResumePage() {
               <LI>Go HTTP Clients Certification</LI>
             </UL>
             <LI>Python Certification</LI>
-            <LI>Object Oriented Programming Certification</LI>
+            <UL>
+              <LI>Object Oriented Programming Certification</LI>
+              <LI>AI Agent Build Certification</LI>
+            </UL>
             <LI>Linux Certification</LI>
             <LI>SQL Certification</LI>
             <LI>AWS Cloud Practictioner Certification (in progress)</LI>
