@@ -2,6 +2,7 @@ import pythoncert from "@/assets/pythoncert.png";
 import aiagentcert from "@/assets/aiagent_certificate.png";
 import linuxcert from "@/assets/linux_certificate.png";
 import gohttp from "@/assets/gohttpclients_cert.png";
+import gohttpserver from "@/assets/gohttpserver_cert.png";
 import gocert from "@/assets/go_certificate.png";
 import sqlcert from "@/assets/sql_certificate.png";
 import oopcert from "@/assets/OOP_certificate.png";
@@ -28,6 +29,7 @@ export default function CertsPage() {
       <TooltipProvider delayDuration={200}>
         <div className="mx-auto grid w-full grid-cols-1 md:grid-cols-2 gap-8">
           <CertItem src={gocert} alt="Go Certification" />
+          <CertItem src={gohttpserver} alt="Go HTTP Servers Certification" />
           <CertItem src={gohttp} alt="Go HTTP Clients Certification" />
           <CertItem src={pythoncert} alt="Python Certification" />
           <CertItem src={aiagentcert} alt="AI Agent Certification" />

@@ -160,6 +160,7 @@ export default function ResumePage() {
           <UL>
             <LI>Go Certification</LI>
             <UL>
+              <LI>Go HTTP Servers Certification</LI>
               <LI>Go HTTP Clients Certification</LI>
             </UL>
             <LI>Python Certification</LI>
