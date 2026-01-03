@@ -1,11 +1,15 @@
 # Kozykoding Profile
 
-## This Is My Full Stack Profile Project
+This Is My Full Stack Profile Project
 
-## Features:
+Features:
 
 ### - React Frontend
+
 ### - Postgres Database
+
 ### - Go Backend
+
 ### - ShadnCN UI
+
 ### - Tailwind CSS
