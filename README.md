@@ -1,8 +1,8 @@
 # Kozykoding Profile
 
-This Is My Full Stack Profile Project
+## This Is My Full Stack Profile Project
 
-Features:
+## Features:
 
 ### - React Frontend
 
