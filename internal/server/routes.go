@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -32,8 +33,15 @@ type togglePayload struct {
 
 func (s *Server) corsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Set CORS headers
-		w.Header().Set("Access-Control-Allow-Origin", "*") // Replace "*" with specific origins if needed
+		// 1. Get the origin from the environment variable
+		// 2. Provide a fallback for local development
+		allowedOrigin := os.Getenv("ALLOWED_ORIGIN")
+		if allowedOrigin == "" {
+			allowedOrigin = "http://localhost:5173"
+		}
+
+		// Set CORS headers using the dynamic origin
+		w.Header().Set("Access-Control-Allow-Origin", allowedOrigin)
 		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH")
 		w.Header().Set("Access-Control-Allow-Headers", "Accept, Authorization, Content-Type, X-CSRF-Token")
 		w.Header().Set("Access-Control-Allow-Credentials", "false") // Set to "true" if credentials are required

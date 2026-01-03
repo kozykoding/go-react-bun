@@ -1,6 +1,5 @@
 # Dependencies (will be installed fresh during build)
 node_modules/
-frontend/node_modules/
 
 # Git
 .git/
@@ -41,12 +40,14 @@ coverage/
 # README and docs
 *.md
 
-# Frontend build output (will be generated)
-frontend/dist/
-frontend/build/
-
 # Go test binary
 *.test
 
 # Go built binary (will be compiled during build)
 main
+
+# ===========================================
+# EXCLUDE FRONTEND (for Go backend builds)
+# ===========================================
+# The frontend is deployed separately in Coolify
+frontend/
