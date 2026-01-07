@@ -153,6 +153,7 @@ export default function ResumePage() {
               <h4 className="font-bold text-primary">Go Development</h4>
               <ul className="mt-1 text-xs text-muted-foreground list-disc ml-4">
                 <li>HTTP Servers & Clients Cert</li>
+                <li>RSS Feed & Blog Aggregator Project</li>
                 <li>Concurrent Web Scraper Project</li>
               </ul>
             </div>

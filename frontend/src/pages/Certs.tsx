@@ -3,6 +3,7 @@ import aiagentcert from "@/assets/aiagent_certificate.png";
 import linuxcert from "@/assets/linux_certificate.png";
 import gohttp from "@/assets/gohttpclients_cert.png";
 import goscraper from "@/assets/goscraper_certificate.png";
+import gogator from "@/assets/gogator_certificate.png";
 import gohttpserver from "@/assets/gohttpserver_cert.png";
 import gocert from "@/assets/go_certificate.png";
 import sqlcert from "@/assets/sql_certificate.png";
@@ -68,6 +69,7 @@ export default function CertsPage() {
       <TooltipProvider delayDuration={200}>
         <div className="flex flex-wrap justify-center gap-4">
           <CertItem src={goscraper} alt="Go Web Scraper Project" />
+          <CertItem src={gogator} alt="Go RSS Feed Aggregator Project" />
           <CertItem src={aiagentcert} alt="AI Agent Project" />
         </div>
       </TooltipProvider>
