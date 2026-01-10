@@ -45,13 +45,12 @@ export default function ResumePage() {
                 "Go",
                 "Python",
                 "SQL",
-                "TypeScript",
-                "React/Next.js",
                 "PostgreSQL",
-                "ETL",
+                "Kubernetes",
+                "Git",
                 "Docker",
-                "Linux Admin",
-                "Network Security",
+                "Linux",
+                "React/Next.js",
               ].map((s) => (
                 <span
                   key={s}
@@ -113,7 +112,6 @@ export default function ResumePage() {
           <Job
             role="Junior Software Engineer / Backend Developer"
             company="The Gun Range"
-            location="Sacramento, CA"
             duration="June 2023 – Nov 2025"
             bullets={[
               "Developed internal SaaS tools using Python, SQL, and Next.js, automating staff management and inventory tracking.",
@@ -126,7 +124,6 @@ export default function ResumePage() {
           <Job
             role="Founder / Full Stack Developer"
             company="Shinigami LLC / Ripples Events"
-            location="Sacramento, CA"
             duration="Oct 2020 – June 2023"
             bullets={[
               "Optimized PostgreSQL databases for high-concurrency inventory tracking and CRM operations.",
@@ -138,7 +135,6 @@ export default function ResumePage() {
           <Job
             role="Business Analyst"
             company="Centene Corporation"
-            location="Sacramento, CA"
             duration="Jan 2019 – Sept 2020"
             bullets={[
               "Reduced manual data processing by 60% through Python-based automation and SQL query optimization.",
@@ -200,13 +196,11 @@ function SectionHeading({
 function Job({
   role,
   company,
-  location,
   duration,
   bullets,
 }: {
   role: string;
   company: string;
-  location: string;
   duration: string;
   bullets: string[];
 }) {
@@ -221,7 +215,6 @@ function Job({
         </div>
         <div className="text-right md:text-right text-xs">
           <div className="font-semibold text-foreground">{duration}</div>
-          <div className="text-muted-foreground italic">{location}</div>
         </div>
       </div>
       <ul className="mt-3 ml-4 list-disc space-y-1.5 text-[13.5px]">
