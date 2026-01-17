@@ -1,4 +1,4 @@
-# frontend/nixpacks.toml  (new file)
+# frontend/nixpacks.toml
 
 [phases.install]
 cmds = ["bun install --frozen-lockfile"]
@@ -6,5 +6,7 @@ cmds = ["bun install --frozen-lockfile"]
 [phases.build]
 cmds = ["bun run build"]
 
+# Static site - no start command needed
+# The dist folder will be created in the current working directory
 [start]
-cmd = "bun run preview" # ignored for static site, but okay to leave
+cmd = "echo 'Static site - files served by Coolify'"
