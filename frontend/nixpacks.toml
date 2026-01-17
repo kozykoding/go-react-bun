@@ -1,10 +1,10 @@
 # frontend/nixpacks.toml
 
 [phases.install]
-cmds = ["cd /frontend && bun install --frozen-lockfile"]
+cmds = ["cd /app/frontend && bun install --frozen-lockfile"]
 
 [phases.build]
-cmds = ["cd /frontend && bun run build"]
+cmds = ["cd /app/frontend && bun run build"]
 
 # Static site - no start command needed
 [start]
