@@ -82,7 +82,7 @@ export function NavMenu() {
 
                 <NavigationMenuLink asChild>
                   <a
-                    href="https://kozyyffl.vercel.app/"
+                    href="https://kozyyffl.space/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
