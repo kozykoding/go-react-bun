@@ -80,7 +80,7 @@ export function NavMenu() {
                   </a>
                 </NavigationMenuLink>
 
-                <NavigationMenuLink asChild>
+                {/*                 <NavigationMenuLink
                   <a
                     href="https://kozyyffl.space/"
                     target="_blank"
@@ -92,7 +92,7 @@ export function NavMenu() {
                       My FFL SaaS app.
                     </div>
                   </a>
-                </NavigationMenuLink>
+                </NavigationMenuLink>*/}
               </li>
             </ul>
           </NavigationMenuContent>
