@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Item, ItemGroup } from "@/components/ui/item";
 
 const API_BASE = import.meta.env.VITE_API_URL;
+console.log("API BASE =", API_BASE);
 
 type Todo = {
   id: number;

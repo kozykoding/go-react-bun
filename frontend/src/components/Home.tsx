@@ -28,7 +28,7 @@ export default function Home() {
 
   const isDark = theme === "dark";
   const githubIcon = isDark ? github : githubDark;
-  const recipient = "sammy@kozykoding.com";
+  const recipient = "sammy@cozyy.dev";
   const subject = "You Are Hired!";
   const body =
     "Hey Sammy, I want to offer you a position as an dev at my company!";
@@ -61,11 +61,7 @@ export default function Home() {
             alt="LinkedIn"
             href="https://www.linkedin.com/in/samuel-lee-690891b4/"
           />
-          <SocialLinks
-            src={gmail}
-            alt="sammy@kozykoding.com"
-            href={mailtoUrl}
-          />
+          <SocialLinks src={gmail} alt="sammy@cozyy.dev" href={mailtoUrl} />
         </div>
       </TooltipProvider>
 
