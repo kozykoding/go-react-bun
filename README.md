@@ -1,15 +1,17 @@
-# Kozykoding Profile
+# Kozykoding – Full Stack Portfolio
 
-## This Is My Full Stack Profile Project
+Welcome to my full stack portfolio project. This repo powers my personal site, where I showcase selected projects, experiments, and the technologies I enjoy working with.
 
-## Features:
+## Tech Stack
 
-### - React Frontend
+- **Frontend**: React + TypeScript, ShadCN UI, Tailwind CSS  
+- **Backend**: Go (Golang)  
+- **Database**: PostgreSQL  
+- **Features**: REST APIs, modern tooling, component-driven UI
 
-### - Postgres Database
+## What This Project Demonstrates
 
-### - Go Backend
-
-### - ShadnCN UI
-
-### - Tailwind CSS
+- **Production-style architecture**: Separation between React frontend, Go backend, and Postgres database.
+- **Modern UI/UX**: Accessible, responsive layout using ShadCN UI and Tailwind for rapid styling.
+- **API design**: Typed request/response flows between frontend and backend.
+- **Data modeling**: Postgres database to support typical CRUD features.
