@@ -54,7 +54,7 @@ export default function Home() {
           <SocialLinks
             src={githubIcon}
             alt="GitHub"
-            href="https://github.com/kozykoding"
+            href="https://github.com/cozyydev"
           />
           <SocialLinks
             src={linkedin}
