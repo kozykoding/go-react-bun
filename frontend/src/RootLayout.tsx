@@ -19,7 +19,7 @@ export default function RootLayout() {
 
       {/* Footer - Always visible */}
       <footer className="text-center text-muted-foreground text-sm mt-6 pb-6">
-        Built with Vite React, Go, and ShadCN / Tailwind CSS
+        Built with Bun Runtime, Vite React, Go, and ShadCN / Tailwind CSS
       </footer>
     </ThemeProvider>
   );
