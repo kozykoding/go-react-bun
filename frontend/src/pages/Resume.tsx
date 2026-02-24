@@ -110,11 +110,24 @@ export default function ResumePage() {
           <SectionHeading>Work Experience</SectionHeading>
 
           <Job
+            role="Consultant Developer / Systems Admin"
+            company="Cozyydev Consulting"
+            duration="Nov 2025 - Current"
+            bullets={[
+              "Administer Microsoft 365 for SMB clients: users, domains, roles/permissions, and policies.",
+              "Configure Entra ID Conditional Access and MFA requirements to enforce access.",
+              "Support Exchange/Outlook onboarding and troubleshoot endpoint/network issues; document repeatable procedures to reduce downtime.",
+              "Develop automations using Python & Go for infrastructure provisioning.",
+              "Review existing codebase to implement updates, changes, and CSS refreshing as needed in WordPress, React, and Tailwind CSS.",
+            ]}
+          />
+
+          <Job
             role="Junior Software Engineer / Backend Developer"
             company="The Gun Range"
             duration="June 2023 – Nov 2025"
             bullets={[
-              "Developed internal SaaS tools using Python, SQL, and Next.js, automating staff management and inventory tracking.",
+              "Developed internal tools using Python, SQL, and React, automating staff management and inventory tracking.",
               "Architected centralized SQL reporting schemas, consolidating disparate data into real-time KPI dashboards.",
               "Maintained 100% compliance for CA DOJ/ATF federal audits through automated data validation and reporting scripts.",
               "Engineered automated ETL pipelines in Python, reducing manual reporting effort and data discrepancies.",
