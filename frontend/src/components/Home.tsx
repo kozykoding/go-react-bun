@@ -39,7 +39,7 @@ export default function Home() {
     <div className="space-y-12">
       {/* Intro Section */}
       <section className="container max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
+        <h1 className="text-4xl text-primary font-extrabold tracking-tight lg:text-5xl mb-4">
           Sammy's Portfolio
         </h1>
         <p className="text-xl text-muted-foreground">
@@ -67,13 +67,13 @@ export default function Home() {
 
       {/* Navigation Cards */}
       <section className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Item variant="outline" asChild>
-          <Link to="/health">
+        <Item variant="outline" asChild className="text-primary">
+          <Link to="/todos">
             <ItemContent>
               <ItemHeader>
-                <ItemTitle>Go API Health Check</ItemTitle>
+                <ItemTitle>Todo List</ItemTitle>
                 <ItemDescription>
-                  Test the connection between Go and React.
+                  CRUD app using Postgres for persistence & Go.
                 </ItemDescription>
               </ItemHeader>
             </ItemContent>
@@ -81,12 +81,12 @@ export default function Home() {
         </Item>
 
         <Item variant="outline" asChild>
-          <Link to="/todos">
+          <Link to="/health">
             <ItemContent>
               <ItemHeader>
-                <ItemTitle>Todo App</ItemTitle>
+                <ItemTitle>Go API Health Check</ItemTitle>
                 <ItemDescription>
-                  CRUD app using Postgres for persistence & Go.
+                  Test the connection between Go and React.
                 </ItemDescription>
               </ItemHeader>
             </ItemContent>
@@ -123,7 +123,7 @@ export default function Home() {
             Featured Project
           </h2>
           <p className="text-primary/80">
-            Sammy&apos;s Python Asteroids. Have A... Blast!
+            Asteroids. Written In Python & WebAssembly. Have A Blast!
           </p>
         </div>
 
