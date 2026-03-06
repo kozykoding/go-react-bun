@@ -75,12 +75,12 @@ export function NavMenu() {
                   >
                     <div className="font-medium">KozyyPM</div>
                     <div className="text-muted-foreground">
-                      My Project Management SaaS app.
+                      My Project Management SaaS.
                     </div>
                   </a>
                 </NavigationMenuLink>
 
-                {/*                 <NavigationMenuLink
+                <NavigationMenuLink asChild>
                   <a
                     href="https://kozyyffl.space/"
                     target="_blank"
@@ -88,11 +88,9 @@ export function NavMenu() {
                     className="block space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="font-medium">KozyyFFL</div>
-                    <div className="text-muted-foreground">
-                      My FFL SaaS app.
-                    </div>
+                    <div className="text-muted-foreground">My FFL SaaS.</div>
                   </a>
-                </NavigationMenuLink>*/}
+                </NavigationMenuLink>
               </li>
             </ul>
           </NavigationMenuContent>
