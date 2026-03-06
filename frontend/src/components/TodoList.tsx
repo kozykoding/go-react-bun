@@ -104,7 +104,7 @@ export function TodoList() {
   const safeTodos = todos ?? [];
 
   return (
-    <div className="space-y-4">
+    <div>
       <form onSubmit={addTodo} className="flex gap-2">
         <InputGroup>
           <InputGroupInput
@@ -120,44 +120,42 @@ export function TodoList() {
         </InputGroup>
       </form>
 
-      <ul className="space-y-2">
-        <ItemGroup className="gap-4">
-          {safeTodos.map((todo) => (
-            <Item key={todo.id} className="p-2 flex items-center gap-2">
-              <Checkbox
-                checked={todo.done}
-                onCheckedChange={() => toggleTodo(todo.id)}
-              />
+      <ItemGroup>
+        {safeTodos.map((todo) => (
+          <Item key={todo.id} className="p-2 flex items-center gap-2">
+            <Checkbox
+              checked={todo.done}
+              onCheckedChange={() => toggleTodo(todo.id)}
+            />
 
-              <button
-                type="button"
-                onClick={() => toggleTodo(todo.id)}
-                className={`text-left text-primary flex-1 ${
-                  todo.done ? "line-through text-muted-foreground" : ""
-                }`}
-              >
-                {todo.text}
-              </button>
+            <button
+              type="button"
+              onClick={() => toggleTodo(todo.id)}
+              className={`text-left text-primary flex-1 ${
+                todo.done ? "line-through text-muted-foreground" : ""
+              }`}
+            >
+              {todo.text}
+            </button>
 
-              <Button
-                type="button"
-                variant="ghost"
-                className="hover:bg-destructive"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  void deleteTodo(todo.id);
-                }}
-              >
-                ✕
-              </Button>
-            </Item>
-          ))}{" "}
-          {safeTodos.length === 0 && (
-            <li className="text-sm text-muted-foreground">No todos yet.</li>
-          )}
-        </ItemGroup>
-      </ul>
+            <Button
+              type="button"
+              variant="ghost"
+              className="hover:bg-destructive"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                void deleteTodo(todo.id);
+              }}
+            >
+              ✕
+            </Button>
+          </Item>
+        ))}{" "}
+        {safeTodos.length === 0 && (
+          <li className="text-sm text-muted-foreground">No todos yet.</li>
+        )}
+      </ItemGroup>
     </div>
   );
 }
