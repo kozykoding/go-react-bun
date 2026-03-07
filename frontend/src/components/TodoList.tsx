@@ -131,9 +131,8 @@ export function TodoList() {
             <button
               type="button"
               onClick={() => toggleTodo(todo.id)}
-              className={`text-left text-primary flex-1 ${
-                todo.done ? "line-through text-muted-foreground" : ""
-              }`}
+              className={`text-left text-primary flex-1 ${todo.done ? "line-through text-muted-foreground" : ""
+                }`}
             >
               {todo.text}
             </button>
@@ -153,7 +152,7 @@ export function TodoList() {
           </Item>
         ))}{" "}
         {safeTodos.length === 0 && (
-          <li className="text-sm text-muted-foreground">No todos yet.</li>
+          <li className="text-sm text-muted-foreground mt-4">No todos yet.</li>
         )}
       </ItemGroup>
     </div>
